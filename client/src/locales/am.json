@@ -1,0 +1,20 @@
+{
+    "navbar" : {
+        "home": "መነሻ",
+        "about": "ስለ እኛ",
+        "news": "ዜና",
+        "events": "ዝግጅቶች",
+        "join": "ይቀላቀሉ",
+        "donate": "ይለግሱ",
+        "supporters": "ደጋፊዎች",
+        "campaignNews": "የዘመቻው ዜናዎች",
+        "upcomingEvents": "ቀጣይ ዝግጅቶች",
+        "login": "ግባ",
+        "logout": "ውጣ"
+    },
+    "home":{
+    "heroTitle": "አዲስ ትውልድ ብሩህ ተስፋ!",
+    "heroSubtitle": "ለሁሉም ዜጎች የተሻለ ኢትዮጵያ",
+    "joinMovement": "ንቅናቄውን ይቀላቀሉ",
+    "supportCampaign": "ዘመቻውን ይደግፉ"}
+}

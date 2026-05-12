@@ -1,0 +1,44 @@
+{
+    "navbar": {
+  
+      "home": "Home",
+      "about": "About",
+      "news": "News",
+      "events": "Events",
+      "join": "Join",
+      "donate": "Donate",
+      "supporters": "Supporters",
+      "campaignNews": "Campaign News",
+      "upcomingEvents": "Upcoming Events",
+      "login": "Login",
+      "logout": "Logout"
+
+  
+    },
+  
+    "home": {
+  
+      "heroTitle":
+        "New Generation, Bright Hope!",
+  
+      "heroSubtitle":
+        "A democratic and prosperous Ethiopia",
+  
+      "joinMovement":
+        "Join Movement",
+  
+      "supportCampaign":
+        "Support Campaign"
+  
+    },
+  
+    "events": {
+  
+      "title":
+        "Upcoming Events",
+  
+      "viewAll":
+        "View All"
+  
+    }
+  }
