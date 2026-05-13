@@ -93,6 +93,7 @@ AdminEmail() {
     };
 
   return (
+    <div className="page-container">
 <>
   <Helmet>
 
@@ -309,5 +310,6 @@ AdminEmail() {
 
     </div>
 </>
+</div>
   );
 }

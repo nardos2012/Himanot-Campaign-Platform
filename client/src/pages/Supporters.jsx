@@ -117,6 +117,7 @@ AdminSupporters() {
     };
 
   return (
+    <div className="page-container">
     <>
   <Helmet>
 
@@ -565,5 +566,6 @@ AdminSupporters() {
       <Footer/>
     </div>
 </>
+</div>
   );
 }

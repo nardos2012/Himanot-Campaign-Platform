@@ -221,6 +221,7 @@ AdminEvents() {
     };
 
   return (
+    <div className="page-container">
 <>
   <Helmet>
 
@@ -585,5 +586,6 @@ AdminEvents() {
 
     </div>
 </>
+</div>
   );
 }

@@ -256,6 +256,7 @@ Analytics() {
     supporters.slice(0, 5);
 
   return (
+    <div className="page-container">
 <>
   <Helmet>
 
@@ -856,5 +857,6 @@ Analytics() {
 
     </div>
 </>
+</div>
   );
 }

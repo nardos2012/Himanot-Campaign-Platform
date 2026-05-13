@@ -244,6 +244,7 @@ AdminPosts() {
     };
 
   return (
+    <div className="page-container">
 <>
   <Helmet>
 
@@ -658,5 +659,6 @@ AdminPosts() {
 
     </div>
 </>
+</div>
   );
 }

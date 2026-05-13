@@ -22,6 +22,7 @@ export default function Donations() {
   };
 
   return (
+    <div className="page-container">
     <>
   <Helmet>
 
@@ -58,5 +59,6 @@ export default function Donations() {
       ))}
     </div>
     </>
+    </div>
   );
 }

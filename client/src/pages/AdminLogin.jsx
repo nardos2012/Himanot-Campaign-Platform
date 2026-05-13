@@ -68,6 +68,7 @@ export default function AdminLogin() {
   };
 
   return (
+    <div className="page-container">
     <>
   <Helmet>
 
@@ -146,5 +147,6 @@ export default function AdminLogin() {
 
     </div>
     </>
+    </div>
   );
 }

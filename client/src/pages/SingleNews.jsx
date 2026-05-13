@@ -55,6 +55,7 @@ export default function SingleNews() {
   }
 
   return (
+    <div className="page-container">
     <>
   <Helmet>
 
@@ -118,5 +119,6 @@ export default function SingleNews() {
 
     </div>
     </>
+    </div>
   );
 }

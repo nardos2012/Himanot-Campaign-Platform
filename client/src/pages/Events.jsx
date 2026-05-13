@@ -5,7 +5,12 @@ import axios from "axios";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
-import { API_URL } from "../config";
+// import { API_URL } from "../config";
+
+import {
+  API_URL,
+} from "../config";
+
 import {
   Helmet,
 } from "react-helmet-async";
@@ -22,7 +27,7 @@ export default function Events() {
 
       const response =
         await axios.get(
-          "http://${API_URL}/api/events"
+          `${API_URL}/api/events`
         );
 
       setEvents(response.data.events);
@@ -41,6 +46,7 @@ export default function Events() {
   }, []);
 
   return (
+    <div className="page-container">
     <>
   <Helmet>
 
@@ -211,5 +217,6 @@ export default function Events() {
 
     </div>
     </>
+    </div>
   );
 }

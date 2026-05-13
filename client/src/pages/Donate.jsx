@@ -119,7 +119,7 @@ Donate() {
     };
 
   return (
-    
+    <div className="page-container">
       <>
     
         <Helmet>
@@ -668,7 +668,7 @@ Donate() {
 
     </div>
     </>
-    
+    </div>
 
   );
 }

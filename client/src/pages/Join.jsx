@@ -70,6 +70,7 @@ export default function Join() {
   };
 
   return (
+    <div className="page-container">
     <>
   <Helmet>
 
@@ -323,5 +324,6 @@ export default function Join() {
 
     </div>
     </>
+    </div>
   );
 }

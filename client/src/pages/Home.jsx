@@ -204,7 +204,7 @@ export default function Home() {
   }, []);
 
   return (
-
+<div className="page-container">
 <>
 
       <Helmet>
@@ -1994,5 +1994,6 @@ export default function Home() {
       
 
 </>
+</div>
       );
 }

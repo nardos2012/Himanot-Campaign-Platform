@@ -5,7 +5,11 @@ import axios from "axios";
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { API_URL } from "../config";
+// import { API_URL } from "../config";
+import {
+  API_URL,
+} from "../config";
+
 import {
   Helmet,
 } from "react-helmet-async";
@@ -22,7 +26,7 @@ export default function News() {
     try {
 
       const response = await axios.get(
-        "http://${API_URL}/api/posts"
+        `${API_URL}/api/posts`
       );
 
       setPosts(response.data.posts);
@@ -41,6 +45,7 @@ export default function News() {
   }, []);
 
   return (
+    <div className="page-container">
     <>
   <Helmet>
 
@@ -177,5 +182,6 @@ key={post._id}
 
     </div>
     </>
+    </div>
   );
 }

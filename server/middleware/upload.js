@@ -7,15 +7,13 @@ import {
 import cloudinary
   from "../config/cloudinary.js";
 
+// CLOUDINARY STORAGE
 const storage =
   new CloudinaryStorage({
 
     cloudinary,
 
-    params: async (
-      req,
-      file
-    ) => ({
+    params: {
 
       folder:
         "gogot-campaign",
@@ -27,11 +25,23 @@ const storage =
         "webp",
       ],
 
-    }),
+    },
 
   });
 
+// MULTER CONFIG
 const upload =
-  multer({ storage });
+  multer({
+
+    storage,
+
+    limits: {
+
+      fileSize:
+        5 * 1024 * 1024,
+
+    },
+
+  });
 
 export default upload;

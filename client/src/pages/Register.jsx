@@ -60,6 +60,7 @@ export default function Register() {
   };
 
   return (
+    <div className="page-container">
     <>
   <Helmet>
 
@@ -245,7 +246,7 @@ export default function Register() {
 
     </div>
     </>
-
+</div>
   );
 
 }

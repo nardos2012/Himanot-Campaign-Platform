@@ -2,7 +2,9 @@ import {
   useState,
   useEffect,
 } from "react";
-
+import logo4
+  from "../assets/logo4.png";
+  
 import {
   Link,
   NavLink,
@@ -18,6 +20,7 @@ import {
 import {
   useTranslation,
 } from "react-i18next";
+
 
 export default function Navbar() {
 
@@ -191,19 +194,42 @@ export default function Navbar() {
 
         {/* LOGO */}
         <Link
-          to="/"
+        to="/"
+        className="
+          flex
+          items-center
+          gap-3
+        "
+      >
+      
+        <img
+          src={logo4}
+          alt="GOGOT PARTY"
           className="
-            text-3xl
-            font-extrabold
+            w-14
+            h-14
+            object-contain
+          "
+        />
+      
+        <div
+          className="
             leading-none
+            font-black
+            text-white
+            text-2xl
           "
         >
-
+      
           GOGOT
+      
           <br />
+      
           PARTY
-
-        </Link>
+      
+        </div>
+      
+      </Link>
 
         {/* DESKTOP MENU */}
         <div
@@ -559,32 +585,36 @@ export default function Navbar() {
 <div
   className={`
     lg:hidden
-    overflow-hidden
-    transition-all
-    duration-300
-    ease-in-out
+    fixed
+    top-[72px]
+    left-0
+    w-full
+    h-[calc(100vh-72px)]
     bg-white
     dark:bg-gray-900
     text-black
     dark:text-white
-    shadow-2xl
-    border-t
-    border-gray-200
-    dark:border-gray-700
+    z-[999]
+    overflow-y-auto
+    overflow-x-hidden
+    transition-all
+    duration-300
+    ease-in-out
     ${
       mobileMenu
-        ? "max-h-[1000px] opacity-100 py-6"
-        : "max-h-0 opacity-0 py-0"
+        ? "translate-x-0 opacity-100"
+        : "-translate-x-full opacity-0 pointer-events-none"
     }
   `}
 >
 
   <div
-    className="
-      px-6
-      pb-10
-      space-y-6
-    "
+   className="
+   px-6
+   py-8
+   space-y-6
+   pb-32
+ "
   >
 
     <NavLink

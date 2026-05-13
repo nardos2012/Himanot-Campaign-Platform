@@ -176,6 +176,7 @@ import Footer from "../components/Footer";
       ).length;
   
     return (
+      <div className="page-container">
       <>
       <Helmet>
     
@@ -613,5 +614,6 @@ import Footer from "../components/Footer";
         <Footer />
       </div>
       </>
+      </div>
     );
   }

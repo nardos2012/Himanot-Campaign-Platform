@@ -8,6 +8,7 @@ import {
 export default function About() {
 
   return (
+    <div className="page-container">
     <>
   <Helmet>
 
@@ -120,5 +121,6 @@ export default function About() {
 
     </div>
     </>
+    </div>
   );
 }

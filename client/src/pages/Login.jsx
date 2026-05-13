@@ -28,6 +28,24 @@ export default function Login() {
   };
 
   return (
+    <div className="page-container">
+      <>
+    
+    <Helmet>
+
+      <title>
+      Welcome Back | GOGOT PARTY
+      </title>
+
+      <meta
+        name="description"
+        content="
+          Support the GOGOT PARTY campaign
+          and help build a brighter future.
+        "
+      />
+
+    </Helmet>
     <div className="bg-whiteGloss min-h-screen">
       <Navbar />
 
@@ -78,6 +96,8 @@ export default function Login() {
       </div>
 
       <Footer />
+    </div>
+</>
     </div>
   );
 }

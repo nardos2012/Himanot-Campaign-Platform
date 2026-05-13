@@ -4,6 +4,7 @@ import {
 
 export default function NotFound() {
     return (
+      <div className="page-container">
       <>
   <Helmet>
 
@@ -30,5 +31,6 @@ export default function NotFound() {
         </p>
       </div>
       </>
+      </div>
     );
   }

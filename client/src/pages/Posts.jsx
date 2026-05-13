@@ -49,6 +49,7 @@ export default function Posts() {
   }
 
   return (
+    <div className="page-container">
     <>
   <Helmet>
 
@@ -99,5 +100,6 @@ export default function Posts() {
       })}
     </div>
     </>
+    </div>
   );
 }

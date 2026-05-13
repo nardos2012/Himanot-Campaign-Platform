@@ -1,42 +1,142 @@
 import {
+  Suspense,
+  lazy,
+} from "react";
+
+import {
   Routes,
   Route,
 } from "react-router-dom";
 
-import Home from "./pages/Home";
-import About from "./pages/About";
-import News from "./pages/News";
-import SingleNews from "./pages/SingleNews";
-import Events from "./pages/Events";
-import SingleEvent from "./pages/SingleEvent";
-import Donate from "./pages/Donate";
-import Join from "./pages/Join";
-import Register from "./pages/Register";
-import Supporters from "./pages/Supporters";
-import Analytics from "./pages/Analytics";
+import ProtectedRoute from "./components/ProtectedRoute";
 
-import AdminLogin from "./pages/AdminLogin";
-import AdminPosts from "./pages/AdminPosts";
-import AdminEvents from "./pages/AdminEvents";
-import AdminDonations from "./pages/AdminDonations";
-import AdminSupporters from "./pages/AdminSupporters";
-import AdminEmail from "./pages/AdminEmail";
+  //Lazy Imports
+  const Home =
+  lazy(() =>
+    import("./pages/Home")
+  );
 
-import AdminLayout
-  from "./layouts/AdminLayout";
+const Donate =
+  lazy(() =>
+    import("./pages/Donate")
+  );
 
-import ProtectedRoute
-  from "./components/ProtectedRoute";
+const News =
+  lazy(() =>
+    import("./pages/News")
+  );
 
-import NotFound
-  from "./pages/NotFound";
+const SingleNews =
+  lazy(() =>
+    import("./pages/SingleNews")
+  );
+
+const Events =
+  lazy(() =>
+    import("./pages/Events")
+  );
+
+const SingleEvent =
+  lazy(() =>
+    import("./pages/SingleEvent")
+  );
+
+const About =
+  lazy(() =>
+    import("./pages/About")
+  );
+
+const Join =
+  lazy(() =>
+    import("./pages/Join")
+  );
+
+const Register =
+  lazy(() =>
+    import("./pages/Register")
+  );
+
+const Supporters =
+  lazy(() =>
+    import("./pages/Supporters")
+  );
+
+const Analytics =
+  lazy(() =>
+    import("./pages/Analytics")
+  );
+
+const AdminLogin =
+  lazy(() =>
+    import("./pages/AdminLogin")
+  );
+
+const AdminPosts =
+  lazy(() =>
+    import("./pages/AdminPosts")
+  );
+
+const AdminEvents =
+  lazy(() =>
+    import("./pages/AdminEvents")
+  );
+
+const AdminDonations =
+  lazy(() =>
+    import("./pages/AdminDonations")
+  );
+
+const AdminSupporters =
+  lazy(() =>
+    import("./pages/AdminSupporters")
+  );
+
+const AdminEmail =
+  lazy(() =>
+    import("./pages/AdminEmail")
+  );
+
+const AdminLayout =
+  lazy(() =>
+    import("./layouts/AdminLayout")
+  );
+
+const NotFound =
+  lazy(() =>
+    import("./pages/NotFound")
+  );
 
 function App() {
 
   return (
-    <div className="pt-20">
-    <Routes>
 
+    <Suspense
+  
+      fallback={
+  
+        <div
+          className="
+            min-h-screen
+            flex
+            items-center
+            justify-center
+            text-2xl
+            font-bold
+          "
+        >
+  
+          Loading...
+  
+        </div>
+  
+      }
+  
+    >
+  
+      <Routes>
+  
+        {/* ALL YOUR ROUTES HERE */}
+        
       {/* PUBLIC ROUTES */}
 
       <Route
@@ -149,12 +249,13 @@ function App() {
         path="*"
         element={<NotFound />}
       />
-
-    </Routes>
-    </div>
-
+  
+      </Routes>
+  
+    </Suspense>
+  
   );
-
-}
-
-export default App;
+  
+  }
+  
+  export default App;

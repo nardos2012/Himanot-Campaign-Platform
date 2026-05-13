@@ -1,6 +1,8 @@
 import {
   Link,
 } from "react-router-dom";
+import logo4
+  from "../assets/logo4.png";
 
 export default function
 Footer() {
@@ -32,6 +34,14 @@ Footer() {
 
         {/* BRAND */}
         <div>
+        <img
+  src={logo4}
+  alt="GOGOT PARTY"
+  className="
+    w-20
+    mb-4
+  "
+/>
 
           <h3
             className="
@@ -196,7 +206,7 @@ Footer() {
         © {
           new Date()
             .getFullYear()
-        } GOGOT PARTY
+        } GOGOT PARTY @Haimanot.All Rights Reserved
 
       </div>
 

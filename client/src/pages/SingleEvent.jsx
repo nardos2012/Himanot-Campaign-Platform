@@ -132,7 +132,7 @@ import {
     }
   
     return (
-      
+      <div className="page-container">
       <>
       <Helmet>
     
@@ -211,5 +211,6 @@ import {
   
       </div>
       </>
+      </div>
     );
   }

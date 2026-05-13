@@ -13,6 +13,7 @@ export default function CreatePost() {
   };
 
   return (
+    <div className="page-container">
     <>
   <Helmet>
 
@@ -38,5 +39,6 @@ export default function CreatePost() {
       <button onClick={create}>Publish</button>
     </div>
     </>
+    </div>
   );
 }

@@ -27,6 +27,7 @@ import {
 
 export default function UserDashboard() {
   return (
+    <div className="page-container">
     <>
   <Helmet>
 
@@ -53,5 +54,6 @@ export default function UserDashboard() {
       </p>
     </div>
     </>
+    </div>
   );
 }
