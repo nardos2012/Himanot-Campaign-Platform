@@ -9,8 +9,8 @@ import { Server } from "socket.io";
 
 import helmet from "helmet";
 import rateLimit from "express-rate-limit";
-import mongoSanitize
-  from "express-mongo-sanitize";
+// import mongoSanitize
+//   from "express-mongo-sanitize";
 import hpp from "hpp";
 
 // DATABASE
@@ -61,9 +61,9 @@ app.use(
 );
 
 // NOSQL INJECTION PROTECTION
-app.use(
-  mongoSanitize()
-);
+// app.use(
+//   mongoSanitize()
+// );
 
 // HTTP PARAMETER POLLUTION
 app.use(
