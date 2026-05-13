@@ -104,7 +104,16 @@ app.use(
 
       "http://localhost:5173",
 
-      "https://himanot-campaign-platform-nlhmpuahp.vercel.app"
+      "https://himanot-campaign-platform.vercel.app",
+
+    ],
+
+    methods: [
+
+      "GET",
+      "POST",
+      "PUT",
+      "DELETE",
 
     ],
 
