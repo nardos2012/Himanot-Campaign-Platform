@@ -19,7 +19,7 @@ export default function Events() {
 
       const response =
         await axios.get(
-          "http://localhost:5000/api/events"
+          "http://${API_URL}/api/events"
         );
 
       setEvents(response.data.events);

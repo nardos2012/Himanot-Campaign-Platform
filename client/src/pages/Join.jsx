@@ -38,7 +38,7 @@ export default function Join() {
     try {
 
       await axios.post(
-        "http://localhost:5000/api/supporters",
+        "http://${API_URL}/api/supporters",
         formData
       );
 

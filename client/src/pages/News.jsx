@@ -18,7 +18,7 @@ export default function News() {
     try {
 
       const response = await axios.get(
-        "http://localhost:5000/api/posts"
+        "http://${API_URL}/api/posts"
       );
 
       setPosts(response.data.posts);
