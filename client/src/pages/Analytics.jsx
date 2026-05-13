@@ -20,6 +20,9 @@ import {
 import {
   API_URL,
 } from "../config";
+import {
+  Helmet,
+} from "react-helmet-async";
 
 export default function
 Analytics() {
@@ -253,7 +256,22 @@ Analytics() {
     supporters.slice(0, 5);
 
   return (
+<>
+  <Helmet>
 
+    <title>
+      Campaign Analysis | GOGOT PARTY
+    </title>
+
+    <meta
+      name="description"
+      content="
+        The page you are looking for
+        could not be found.
+      "
+    />
+
+  </Helmet>
     <div
       className="
         min-h-screen
@@ -837,6 +855,6 @@ Analytics() {
       </section>
 
     </div>
-
+</>
   );
 }

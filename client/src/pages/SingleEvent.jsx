@@ -12,6 +12,9 @@ import {
   import Navbar from "../components/Navbar";
   import Footer from "../components/Footer";
   import { API_URL } from "../config";
+  import {
+    Helmet,
+  } from "react-helmet-async";
 
   
   export default function SingleEvent() {
@@ -129,6 +132,22 @@ import {
     }
   
     return (
+      
+      <>
+      <Helmet>
+    
+        <title>
+          {event?.title} | GOGOT PARTY
+        </title>
+    
+        <meta
+          name="description"
+          content={
+            event?.description?.slice(0, 150)
+          }
+        />
+    
+      </Helmet>
   
       <div>
   
@@ -191,5 +210,6 @@ import {
         <Footer />
   
       </div>
+      </>
     );
   }

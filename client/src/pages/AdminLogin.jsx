@@ -2,6 +2,9 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { API_URL } from "../config";
+import {
+  Helmet,
+} from "react-helmet-async";
 
 export default function AdminLogin() {
 
@@ -28,7 +31,7 @@ export default function AdminLogin() {
     try {
 
       const response = await axios.post(
-        "http://${API_URL}/api/auth/login",
+        `${API_URL}/api/auth/login`,
         formData
       );
 
@@ -65,6 +68,22 @@ export default function AdminLogin() {
   };
 
   return (
+    <>
+  <Helmet>
+
+    <title>
+      Admin Login | GOGOT PARTY
+    </title>
+
+    <meta
+      name="description"
+      content="
+        Secure administrator access
+        for GOGOT PARTY management system.
+      "
+    />
+
+  </Helmet>
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
 
       <div className="bg-white shadow-xl rounded-xl p-10 w-full max-w-md">
@@ -126,5 +145,6 @@ export default function AdminLogin() {
       </div>
 
     </div>
+    </>
   );
 }

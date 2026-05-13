@@ -6,6 +6,10 @@ import axios from "axios";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { API_URL } from "../config";
+import {
+  Helmet,
+} from "react-helmet-async";
+
 
 export default function News() {
 
@@ -37,6 +41,23 @@ export default function News() {
   }, []);
 
   return (
+    <>
+  <Helmet>
+
+    <title>
+      News | GOGOT PARTY
+    </title>
+
+    <meta
+      name="description"
+      content="
+        Latest campaign news,
+        announcements,
+        and political updates from GOGOT PARTY.
+      "
+    />
+
+  </Helmet>
 
     <div
     className="
@@ -155,5 +176,6 @@ key={post._id}
       <Footer />
 
     </div>
+    </>
   );
 }

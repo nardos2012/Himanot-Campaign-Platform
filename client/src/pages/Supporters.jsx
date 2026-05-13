@@ -11,6 +11,10 @@ import {
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import {
+  Helmet,
+} from "react-helmet-async";
+
 
 export default function
 AdminSupporters() {
@@ -113,6 +117,22 @@ AdminSupporters() {
     };
 
   return (
+    <>
+  <Helmet>
+
+    <title>
+      Supporters | GOGOT PARTY
+    </title>
+
+    <meta
+      name="description"
+      content="
+        View supporters and community members
+        supporting GOGOT PARTY.
+      "
+    />
+
+  </Helmet>
 
     <div
       className="
@@ -544,6 +564,6 @@ AdminSupporters() {
       </section>
       <Footer/>
     </div>
-
+</>
   );
 }

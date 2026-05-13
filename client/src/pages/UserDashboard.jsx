@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import API from "../api";
-
+import {
+  Helmet,
+} from "react-helmet-async";
 // export default function UserDashboard() {
 //   const [donations, setDonations] = useState([]);
 
@@ -25,6 +27,22 @@ import API from "../api";
 
 export default function UserDashboard() {
   return (
+    <>
+  <Helmet>
+
+    <title>
+      User Dashboard | GOGOT PARTY
+    </title>
+
+    <meta
+      name="description"
+      content="
+        The page you are looking for
+        could not be found.
+      "
+    />
+
+  </Helmet>
     <div className="bg-whiteGloss min-h-screen p-6">
       <h2 className="text-2xl font-bold text-primary">
         User Dashboard
@@ -34,5 +52,6 @@ export default function UserDashboard() {
         Welcome! Your activity will appear here.
       </p>
     </div>
+    </>
   );
 }

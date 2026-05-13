@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import API from "../api";
+import {
+  Helmet,
+} from "react-helmet-async";
 
 export default function Donations() {
   const [data, setData] = useState([]);
@@ -19,6 +22,22 @@ export default function Donations() {
   };
 
   return (
+    <>
+  <Helmet>
+
+    <title>
+      Manage Donations | GOGOT PARTY
+    </title>
+
+    <meta
+      name="description"
+      content="
+        The page you are looking for
+        could not be found.
+      "
+    />
+
+  </Helmet>
     <div className="p-6">
       <h2 className="text-xl mb-4">Manage Donations</h2>
 
@@ -38,5 +57,6 @@ export default function Donations() {
         </div>
       ))}
     </div>
+    </>
   );
 }

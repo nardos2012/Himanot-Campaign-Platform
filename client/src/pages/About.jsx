@@ -1,10 +1,30 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import {
+  Helmet,
+} from "react-helmet-async";
 
 
 export default function About() {
 
   return (
+    <>
+  <Helmet>
+
+    <title>
+      About | GOGOT PARTY
+    </title>
+
+    <meta
+      name="description"
+      content="
+        Learn about GOGOT PARTY,
+        our mission, vision,
+        leadership, and campaign goals.
+      "
+    />
+
+  </Helmet>
 
     <div
   className="
@@ -99,5 +119,6 @@ export default function About() {
       <Footer />
 
     </div>
+    </>
   );
 }

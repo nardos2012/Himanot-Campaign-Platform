@@ -1,9 +1,14 @@
 import { useState } from "react";
 
 import axios from "axios";
+import { API_URL } from "../config";
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import toast from "react-hot-toast";
+import {
+  Helmet,
+} from "react-helmet-async";
 
 export default function Join() {
 
@@ -38,11 +43,11 @@ export default function Join() {
     try {
 
       await axios.post(
-        "http://${API_URL}/api/supporters",
+        `${API_URL}/api/supporters`,
         formData
       );
 
-      alert(
+      toast.success(
         "Thank you for joining GOGOT PARTY!"
       );
 
@@ -59,14 +64,28 @@ export default function Join() {
 
       console.error(error);
 
-      alert(
-        "Submission failed"
-      );
+      toast.error("Submission failed");
 
     }
   };
 
   return (
+    <>
+  <Helmet>
+
+    <title>
+      Join | GOGOT PARTY
+    </title>
+
+    <meta
+      name="description"
+      content="
+        Join the GOGOT PARTY movement
+        and become part of the future of Ethiopia.
+      "
+    />
+
+  </Helmet>
 
     <div
       className="
@@ -303,5 +322,6 @@ export default function Join() {
       <Footer />
 
     </div>
+    </>
   );
 }

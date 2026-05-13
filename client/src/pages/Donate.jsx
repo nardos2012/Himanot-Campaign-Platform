@@ -21,6 +21,9 @@ import {
 import {
   API_URL,
 } from "../config";
+import {
+  Helmet,
+} from "react-helmet-async";
 
 export default function
 Donate() {
@@ -116,6 +119,25 @@ Donate() {
     };
 
   return (
+    
+      <>
+    
+        <Helmet>
+    
+          <title>
+            Donate | GOGOT PARTY
+          </title>
+    
+          <meta
+            name="description"
+            content="
+              Support the GOGOT PARTY campaign
+              and help build a brighter future.
+            "
+          />
+    
+        </Helmet>
+    
 
     <div
       className="
@@ -645,6 +667,8 @@ Donate() {
       <Footer />
 
     </div>
+    </>
+    
 
   );
 }

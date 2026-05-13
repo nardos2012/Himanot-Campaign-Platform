@@ -4,7 +4,9 @@ import Card from "../components/ui/Card";
 import { motion } from "framer-motion";
 import { stagger, fadeUp } from "../utils/animations";
 import { useAuth } from "../context/AuthContext";
-
+import {
+  Helmet,
+} from "react-helmet-async";
 
 import {
   PieChart,
@@ -74,6 +76,22 @@ export default function AdminDashboard() {
   ];
 
   return (
+    <>
+  <Helmet>
+
+    <title>
+    Admin Dashboard | GOGOT PARTY
+    </title>
+
+    <meta
+      name="description"
+      content="
+        The page you are looking for
+        could not be found.
+      "
+    />
+
+  </Helmet>
   <div className="min-h-screen bg-whiteGloss p-6">
 
     <h2 className="text-2xl font-bold text-primary mb-6">
@@ -144,5 +162,6 @@ export default function AdminDashboard() {
 
     </div>
   </div>
+  </>
 );
-              }
+}

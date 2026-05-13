@@ -7,6 +7,9 @@ import axios from "axios";
 import {
   API_URL,
 } from "../config";
+import {
+  Helmet,
+} from "react-helmet-async";
 
 export default function
 AdminEmail() {
@@ -90,7 +93,22 @@ AdminEmail() {
     };
 
   return (
+<>
+  <Helmet>
 
+    <title>
+    Email Broadcasting | GOGOT PARTY
+    </title>
+
+    <meta
+      name="description"
+      content="
+        The page you are looking for
+        could not be found.
+      "
+    />
+
+  </Helmet>
     <div
       className="
         min-h-screen
@@ -290,6 +308,6 @@ AdminEmail() {
       </section>
 
     </div>
-
+</>
   );
 }

@@ -1,7 +1,6 @@
 import express from "express";
 
 import {
-  login,
   register,
   loginAdmin,
 } from "../controllers/auth.controller.js";
@@ -14,8 +13,10 @@ router.post(
   register
 );
 
-// NORMAL LOGIN
-router.post("/login",loginAdmin);
-
+// ADMIN LOGIN
+router.post(
+  "/login",
+  loginAdmin
+);
 
 export default router;

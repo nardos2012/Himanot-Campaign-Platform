@@ -1,45 +1,45 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.jsx";
+
 import { BrowserRouter } from "react-router-dom";
-// import { AuthProvider } from "./context/AuthContext"; // ✔ only once
-import "./index.css";   // ✅ REQUIRED
-import "./i18n";
+
 import { Toaster } from "react-hot-toast";
+import {
+  HelmetProvider,
+} from "react-helmet-async";
+
+import App from "./App.jsx";
+
+import "./index.css";
+import "./i18n";
+
 import AuthProvider from "./context/AuthContext";
 
+ReactDOM.createRoot(
+  document.getElementById("root")
+).render(
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
-    <AuthProvider>
-      <App />
-    </AuthProvider>
-  </BrowserRouter>
+  <React.StrictMode>
+
+    <BrowserRouter>
+
+      <HelmetProvider>
+
+        <AuthProvider>
+
+          <App />
+
+          <Toaster
+            position="top-right"
+            reverseOrder={false}
+          />
+
+        </AuthProvider>
+
+      </HelmetProvider>
+
+    </BrowserRouter>
+
+  </React.StrictMode>
+
 );
-<>
-  <App />
-  <Toaster position="top-right" />
-</>
-
-// import React from "react";
-// import ReactDOM from "react-dom/client";
-
-// import App from "./App";
-
-// import "./index.css";
-// import "./i18n";
-
-// ReactDOM.createRoot(
-//   document.getElementById("root")
-// ).render(
-
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>
-
-// );
-
-
-
-
-

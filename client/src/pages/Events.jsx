@@ -6,6 +6,9 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 import { API_URL } from "../config";
+import {
+  Helmet,
+} from "react-helmet-async";
 
 export default function Events() {
 
@@ -38,6 +41,23 @@ export default function Events() {
   }, []);
 
   return (
+    <>
+  <Helmet>
+
+    <title>
+      Events | GOGOT PARTY
+    </title>
+
+    <meta
+      name="description"
+      content="
+        Upcoming campaign events,
+        public meetings,
+        and rallies of GOGOT PARTY.
+      "
+    />
+
+  </Helmet>
 
     <div
   className="
@@ -190,5 +210,6 @@ export default function Events() {
       <Footer />
 
     </div>
+    </>
   );
 }

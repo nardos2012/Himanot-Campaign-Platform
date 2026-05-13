@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import API from "../api";
+import {
+  Helmet,
+} from "react-helmet-async";
 
 export default function Posts() {
   const [posts, setPosts] = useState([]);
@@ -46,6 +49,22 @@ export default function Posts() {
   }
 
   return (
+    <>
+  <Helmet>
+
+    <title>
+      Campaign New Feed | GOGOT PARTY
+    </title>
+
+    <meta
+      name="description"
+      content="
+        The page you are looking for
+        could not be found.
+      "
+    />
+
+  </Helmet>
     <div>
       <h2>Campaign News Feed</h2>
 
@@ -79,5 +98,6 @@ export default function Posts() {
         );
       })}
     </div>
+    </>
   );
 }

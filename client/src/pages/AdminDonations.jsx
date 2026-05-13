@@ -8,6 +8,9 @@ import {
   import {
     API_URL,
   } from "../config";
+  import {
+    Helmet,
+  } from "react-helmet-async";
  
 import Footer from "../components/Footer";
   
@@ -173,7 +176,22 @@ import Footer from "../components/Footer";
       ).length;
   
     return (
-  
+      <>
+      <Helmet>
+    
+        <title>
+        Donation Dashboard | GOGOT PARTY
+        </title>
+    
+        <meta
+          name="description"
+          content="
+            The page you are looking for
+            could not be found.
+          "
+        />
+    
+      </Helmet>
       <div
         className="
           min-h-screen
@@ -594,5 +612,6 @@ import Footer from "../components/Footer";
         </section>
         <Footer />
       </div>
+      </>
     );
   }

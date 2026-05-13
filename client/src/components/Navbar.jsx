@@ -96,6 +96,22 @@ export default function Navbar() {
 
   }, [darkMode]);
 
+  useEffect(() => {
+
+    if (mobileMenu) {
+  
+      document.body.style.overflow =
+        "hidden";
+  
+    } else {
+  
+      document.body.style.overflow =
+        "auto";
+  
+    }
+  
+  }, [mobileMenu]);
+
   // LOGOUT
   const handleLogout =
     () => {
@@ -169,6 +185,7 @@ export default function Navbar() {
           flex
           justify-between
           items-center
+          space-y-5
         "
       >
 
@@ -317,21 +334,141 @@ export default function Navbar() {
 
           </div>
 
-          {/* ADMIN */}
-          {
-            user?.isAdmin && (
+{/* ADMIN */}
+{
+  user?.isAdmin && (
 
-              <NavLink
-                to="/admin/analytics"
-                className={navStyle}
-              >
+    <div
+      className="
+        relative
+        group
+      "
+    >
 
-                Admin
+      <button
+        className="
+          flex
+          items-center
+          gap-1
+          hover:text-gray-200
+        "
+      >
 
-              </NavLink>
+        Admin
 
-            )
-          }
+        <ChevronDown
+          size={18}
+        />
+
+      </button>
+
+      <div
+        className="
+          absolute
+          top-full
+          right-0
+          pt-2
+          bg-white
+          dark:bg-gray-800
+          text-black
+          dark:text-white
+          rounded-xl
+          shadow-2xl
+          w-56
+          opacity-0
+          invisible
+          group-hover:opacity-100
+          group-hover:visible
+          transition
+          overflow-hidden
+          z-50
+        "
+      >
+
+        <Link
+          to="/admin/posts"
+          className="
+            block
+            px-5
+            py-3
+            hover:bg-gray-100
+            dark:hover:bg-gray-700
+          "
+        >
+          Posts
+        </Link>
+
+        <Link
+          to="/admin/events"
+          className="
+            block
+            px-5
+            py-3
+            hover:bg-gray-100
+            dark:hover:bg-gray-700
+          "
+        >
+          Events
+        </Link>
+
+        <Link
+          to="/admin/supporters"
+          className="
+            block
+            px-5
+            py-3
+            hover:bg-gray-100
+            dark:hover:bg-gray-700
+          "
+        >
+          Supporters
+        </Link>
+
+        <Link
+          to="/admin/donations"
+          className="
+            block
+            px-5
+            py-3
+            hover:bg-gray-100
+            dark:hover:bg-gray-700
+          "
+        >
+          Donations
+        </Link>
+
+        <Link
+          to="/admin/email"
+          className="
+            block
+            px-5
+            py-3
+            hover:bg-gray-100
+            dark:hover:bg-gray-700
+          "
+        >
+          Email
+        </Link>
+
+        <Link
+          to="/admin/analytics"
+          className="
+            block
+            px-5
+            py-3
+            hover:bg-gray-100
+            dark:hover:bg-gray-700
+          "
+        >
+          Analytics
+        </Link>
+
+      </div>
+
+    </div>
+
+  )
+}
 
           {/* LANGUAGE */}
           <div
@@ -418,274 +555,434 @@ export default function Navbar() {
         </button>
 
       </div>
+{/* MOBILE MENU */}
+<div
+  className={`
+    lg:hidden
+    overflow-hidden
+    transition-all
+    duration-300
+    ease-in-out
+    bg-white
+    dark:bg-gray-900
+    text-black
+    dark:text-white
+    shadow-2xl
+    border-t
+    border-gray-200
+    dark:border-gray-700
+    ${
+      mobileMenu
+        ? "max-h-[1000px] opacity-100 py-6"
+        : "max-h-0 opacity-0 py-0"
+    }
+  `}
+>
 
-      {/* MOBILE MENU */}
+  <div
+    className="
+      px-6
+      pb-10
+      space-y-6
+    "
+  >
+
+    <NavLink
+      to="/"
+      className="
+        block
+        py-2
+        hover:text-primary
+        transition
+      "
+      onClick={() =>
+        setMobileMenu(false)
+      }
+    >
+      Home
+    </NavLink>
+
+    <NavLink
+      to="/about"
+      className="
+        block
+        py-2
+        hover:text-primary
+        transition
+      "
+      onClick={() =>
+        setMobileMenu(false)
+      }
+    >
+      About
+    </NavLink>
+
+    <NavLink
+      to="/news"
+      className="
+        block
+        py-2
+        hover:text-primary
+        transition
+      "
+      onClick={() =>
+        setMobileMenu(false)
+      }
+    >
+      News
+    </NavLink>
+
+    <NavLink
+      to="/events"
+      className="
+        block
+        py-2
+        hover:text-primary
+        transition
+      "
+      onClick={() =>
+        setMobileMenu(false)
+      }
+    >
+      Events
+    </NavLink>
+
+    {/* PARTICIPATE */}
+    <div>
+
+      <button
+        onClick={() =>
+          setParticipateOpen(
+            !participateOpen
+          )
+        }
+        className="
+          flex
+          items-center
+          gap-2
+          font-semibold
+          py-2
+          hover:text-primary
+          transition
+        "
+      >
+
+        Participate
+
+        <ChevronDown
+          size={18}
+        />
+
+      </button>
+
       {
-        mobileMenu && (
+        participateOpen && (
 
           <div
             className="
-              lg:hidden
-              bg-white
-              dark:bg-gray-900
-              text-black
-              dark:text-white
-              px-6
-              py-6
-              space-y-5
-              shadow-2xl
-              border-t
-              border-gray-200
-              dark:border-gray-700
+              mt-4
+              ml-4
+              space-y-4
             "
           >
 
-            <NavLink
-              to="/"
-              className="block"
+            <Link
+              to="/join"
               onClick={() =>
                 setMobileMenu(false)
-              }
-            >
-              Home
-            </NavLink>
-
-            <NavLink
-              to="/about"
-              className="block"
-              onClick={() =>
-                setMobileMenu(false)
-              }
-            >
-              About
-            </NavLink>
-
-            <NavLink
-              to="/news"
-              className="block"
-              onClick={() =>
-                setMobileMenu(false)
-              }
-            >
-              News
-            </NavLink>
-
-            <NavLink
-              to="/events"
-              className="block"
-              onClick={() =>
-                setMobileMenu(false)
-              }
-            >
-              Events
-            </NavLink>
-
-            {/* PARTICIPATE */}
-            <div>
-
-              <button
-                onClick={() =>
-                  setParticipateOpen(
-                    !participateOpen
-                  )
-                }
-                className="
-                  flex
-                  items-center
-                  gap-2
-                  font-semibold
-                "
-              >
-
-                Participate
-
-                <ChevronDown
-                  size={18}
-                />
-
-              </button>
-
-              {
-                participateOpen && (
-
-                  <div
-                    className="
-                      mt-3
-                      ml-4
-                      space-y-3
-                    "
-                  >
-
-                    <Link
-                      to="/join"
-                      onClick={() =>
-                        setMobileMenu(false)
-                      }
-                      className="block"
-                    >
-                      Join
-                    </Link>
-
-                    <Link
-                      to="/donate"
-                      onClick={() =>
-                        setMobileMenu(false)
-                      }
-                      className="block"
-                    >
-                      Donate
-                    </Link>
-
-                    <Link
-                      to="/supporters"
-                      onClick={() =>
-                        setMobileMenu(false)
-                      }
-                      className="block"
-                    >
-                      Supporters
-                    </Link>
-
-                  </div>
-
-                )
-              }
-
-            </div>
-
-            {/* ADMIN */}
-            {
-              user?.isAdmin && (
-
-                <Link
-                  to="/admin/analytics"
-                  className="block"
-                  onClick={() =>
-                    setMobileMenu(false)
-                  }
-                >
-
-                  Admin Dashboard
-
-                </Link>
-
-              )
-            }
-
-            {/* LANGUAGE */}
-            <div
-              className="
-                flex
-                gap-3
-              "
-            >
-
-              <button
-                onClick={() =>
-                  changeLanguage("en")
-                }
-                className="
-                  border
-                  px-3
-                  py-2
-                  rounded-lg
-                "
-              >
-                EN
-              </button>
-
-              <button
-                onClick={() =>
-                  changeLanguage("am")
-                }
-                className="
-                  border
-                  px-3
-                  py-2
-                  rounded-lg
-                "
-              >
-                አማ
-              </button>
-
-            </div>
-
-            {/* DARK MODE */}
-            <button
-              onClick={() =>
-                setDarkMode(
-                  !darkMode
-                )
               }
               className="
-                border
-                px-4
-                py-2
-                rounded-lg
+                block
+                hover:text-primary
+                transition
               "
             >
+              Join
+            </Link>
 
-              {
-                darkMode
-                  ? "Light Mode ☀️"
-                  : "Dark Mode 🌙"
+            <Link
+              to="/donate"
+              onClick={() =>
+                setMobileMenu(false)
               }
+              className="
+                block
+                hover:text-primary
+                transition
+              "
+            >
+              Donate
+            </Link>
 
-            </button>
-
-            {/* LOGIN */}
-            {
-              user ? (
-
-                <button
-                  onClick={
-                    handleLogout
-                  }
-                  className="
-                    w-full
-                    bg-primary
-                    text-white
-                    py-3
-                    rounded-xl
-                    font-bold
-                  "
-                >
-
-                  Logout
-
-                </button>
-
-              ) : (
-
-                <Link
-                  to="/admin/login"
-                  onClick={() =>
-                    setMobileMenu(false)
-                  }
-                  className="
-                    block
-                    text-center
-                    bg-primary
-                    text-white
-                    py-3
-                    rounded-xl
-                    font-bold
-                  "
-                >
-
-                  Login
-
-                </Link>
-
-              )
-            }
+            <Link
+              to="/supporters"
+              onClick={() =>
+                setMobileMenu(false)
+              }
+              className="
+                block
+                hover:text-primary
+                transition
+              "
+            >
+              Supporters
+            </Link>
 
           </div>
 
         )
       }
 
-    </nav>
+    </div>
+
+    {/* ADMIN */}
+    {
+      user?.isAdmin && (
+
+        <div
+          className="
+            border-t
+            border-gray-300
+            dark:border-gray-700
+            pt-6
+            space-y-4
+          "
+        >
+
+          <h3
+            className="
+              font-bold
+              text-xl
+            "
+          >
+
+            Admin Panel
+
+          </h3>
+
+          <Link
+            to="/admin/posts"
+            className="
+              block
+              py-2
+              hover:text-primary
+              transition
+            "
+            onClick={() =>
+              setMobileMenu(false)
+            }
+          >
+            Posts
+          </Link>
+
+          <Link
+            to="/admin/events"
+            className="
+              block
+              py-2
+              hover:text-primary
+              transition
+            "
+            onClick={() =>
+              setMobileMenu(false)
+            }
+          >
+            Events
+          </Link>
+
+          <Link
+            to="/admin/supporters"
+            className="
+              block
+              py-2
+              hover:text-primary
+              transition
+            "
+            onClick={() =>
+              setMobileMenu(false)
+            }
+          >
+            Supporters
+          </Link>
+
+          <Link
+            to="/admin/donations"
+            className="
+              block
+              py-2
+              hover:text-primary
+              transition
+            "
+            onClick={() =>
+              setMobileMenu(false)
+            }
+          >
+            Donations
+          </Link>
+
+          <Link
+            to="/admin/email"
+            className="
+              block
+              py-2
+              hover:text-primary
+              transition
+            "
+            onClick={() =>
+              setMobileMenu(false)
+            }
+          >
+            Email
+          </Link>
+
+          <Link
+            to="/admin/analytics"
+            className="
+              block
+              py-2
+              hover:text-primary
+              transition
+            "
+            onClick={() =>
+              setMobileMenu(false)
+            }
+          >
+            Analytics
+          </Link>
+
+        </div>
+
+      )
+    }
+
+    {/* LANGUAGE */}
+    <div
+      className="
+        flex
+        gap-3
+        pt-2
+      "
+    >
+
+      <button
+        onClick={() =>
+          changeLanguage("en")
+        }
+        className="
+          border
+          px-4
+          py-2
+          rounded-xl
+          transition
+          hover:bg-gray-100
+          dark:hover:bg-gray-800
+        "
+      >
+        EN
+      </button>
+
+      <button
+        onClick={() =>
+          changeLanguage("am")
+        }
+        className="
+          border
+          px-4
+          py-2
+          rounded-xl
+          transition
+          hover:bg-gray-100
+          dark:hover:bg-gray-800
+        "
+      >
+        አማ
+      </button>
+
+    </div>
+
+    {/* DARK MODE */}
+    <button
+      onClick={() =>
+        setDarkMode(
+          !darkMode
+        )
+      }
+      className="
+        border
+        px-4
+        py-3
+        rounded-xl
+        inline-flex
+        items-center
+        gap-2
+        transition
+        hover:bg-gray-100
+        dark:hover:bg-gray-800
+      "
+    >
+
+      {
+        darkMode
+          ? "Light Mode ☀️"
+          : "Dark Mode 🌙"
+      }
+
+    </button>
+
+    {/* LOGIN / LOGOUT */}
+    {
+      user ? (
+
+        <button
+          onClick={handleLogout}
+          className="
+            w-full
+            bg-primary
+            hover:bg-primaryDark
+            text-white
+            py-3
+            rounded-xl
+            font-bold
+            transition
+          "
+        >
+
+          Logout
+
+        </button>
+
+      ) : (
+
+        <Link
+          to="/admin/login"
+          onClick={() =>
+            setMobileMenu(false)
+          }
+          className="
+            block
+            text-center
+            bg-primary
+            hover:bg-primaryDark
+            text-white
+            py-3
+            rounded-xl
+            font-bold
+            transition
+          "
+        >
+
+          Login
+
+        </Link>
+
+      )
+    }
+
+  </div>
+
+</div>
+
+</nav>
 
   );
 }
