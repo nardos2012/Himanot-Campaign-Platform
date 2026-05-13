@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+  import NewsSkeleton
+  from "../components/NewsSkeleton";
 import axios from "axios";
 
 import Navbar from "../components/Navbar";
@@ -20,22 +22,38 @@ export default function News() {
   const [posts, setPosts] =
     useState([]);
 
+    const [loading, setLoading] =
+  useState(true);
+
   // FETCH POSTS
-  const fetchPosts = async () => {
+  const fetchPosts =
+  async () => {
 
     try {
 
-      const response = await axios.get(
-        `${API_URL}/api/posts`
-      );
+      setLoading(true);
 
-      setPosts(response.data.posts);
+      const response =
+        await axios.get(
+
+          `${API_URL}/api/posts`
+
+        );
+
+      setPosts(
+        response.data.posts
+      );
 
     } catch (error) {
 
-      console.error(error);
+      console.log(error);
+
+    } finally {
+
+      setLoading(false);
 
     }
+
   };
 
   useEffect(() => {
@@ -43,6 +61,43 @@ export default function News() {
     fetchPosts();
 
   }, []);
+
+  if (loading) {
+
+    return (
+  
+      <div
+        className="
+          min-h-screen
+          grid
+          md:grid-cols-2
+          lg:grid-cols-3
+          gap-8
+          p-6
+        "
+      >
+  
+        {
+  
+          [...Array(6)].map(
+  
+            (_, index) => (
+  
+              <NewsSkeleton
+                key={index}
+              />
+  
+            )
+  
+          )
+  
+        }
+  
+      </div>
+  
+    );
+  
+  }
 
   return (
     <div className="page-container">
