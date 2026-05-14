@@ -50,32 +50,52 @@ export default function Home() {
     supporters,
     setSupporters
   ] = useState([]);
+  const [
+    deferredPrompt,
+    setDeferredPrompt
+  ] = useState(null);
+  
   useEffect(() => {
 
+    // INSTALL PROMPT
+    const handler = (e) => {
+  
+      e.preventDefault();
+  
+      setDeferredPrompt(e);
+  
+    };
+  
+    window.addEventListener(
+      "beforeinstallprompt",
+      handler
+    );
+  
+    // COUNTDOWN TIMER
     const timer =
       setInterval(() => {
-
+  
         const now =
           new Date().getTime();
-
+  
         const distance =
           electionDate - now;
-
+  
         if (distance < 0) {
-
+  
           clearInterval(timer);
-
+  
           return;
-
+  
         }
-
+  
         setTimeLeft({
-
+  
           days: Math.floor(
             distance /
             (1000 * 60 * 60 * 24)
           ),
-
+  
           hours: Math.floor(
             (
               distance %
@@ -92,7 +112,7 @@ export default function Home() {
               60
             )
           ),
-
+  
           minutes: Math.floor(
             (
               distance %
@@ -106,7 +126,7 @@ export default function Home() {
               1000 * 60
             )
           ),
-
+  
           seconds: Math.floor(
             (
               distance %
@@ -115,16 +135,23 @@ export default function Home() {
               )
             ) / 1000
           ),
-
+  
         });
-
+  
       }, 1000);
-
-    return () =>
+  
+    return () => {
+  
       clearInterval(timer);
-
+  
+      window.removeEventListener(
+        "beforeinstallprompt",
+        handler
+      );
+  
+    };
+  
   }, []);
-
   // const [
   //   supporters,
   //   setSupporters
@@ -333,6 +360,46 @@ export default function Home() {
             transition
           "
                   >
+                    {/* install button */}
+                    {
+  deferredPrompt && (
+
+    <button
+
+      onClick={async () => {
+
+        deferredPrompt.prompt();
+
+        const {
+          outcome
+        } =
+          await deferredPrompt.userChoice;
+
+        console.log(outcome);
+
+        setDeferredPrompt(null);
+
+      }}
+
+      className="
+        bg-yellow-400
+        text-black
+        px-8
+        py-4
+        rounded-2xl
+        font-bold
+        shadow-xl
+        hover:scale-105
+        transition
+      "
+    >
+
+      Install App
+
+    </button>
+
+  )
+}
 
                     {t("home.supportCampaign")}
 
