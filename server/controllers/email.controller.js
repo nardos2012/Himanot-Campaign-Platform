@@ -1,6 +1,13 @@
-import nodemailer from "nodemailer";
+import { Resend }
+  from "resend";
 
-import Supporter from "../models/supporter.model.js";
+import Supporter
+  from "../models/supporter.model.js";
+
+const resend =
+  new Resend(
+    process.env.RESEND_API_KEY
+  );
 
 // SEND EMAIL
 export const sendEmail =
@@ -9,8 +16,10 @@ export const sendEmail =
     try {
 
       const {
+
         subject,
         message,
+
       } = req.body;
 
       // GET SUPPORTERS
@@ -19,39 +28,46 @@ export const sendEmail =
 
       const emails =
         supporters.map(
-          (s) => s.email
+          (supporter) =>
+            supporter.email
         );
 
-      // TRANSPORTER
-      const transporter =
-        nodemailer.createTransport({
-            host: "smtp.gmail.com",
-            port: 587,
-            secure: false,
-          auth: {
-            user:
-              process.env.EMAIL_USER,
-            pass:
-              process.env.EMAIL_PASS,
-          },
+      // SEND EMAIL
+      const data =
+        await resend.emails.send({
+
+          from:
+            "onboarding@resend.dev",
+
+          to: emails,
+
+          subject,
+
+          html: `
+
+            <div
+              style="
+                font-family:
+                  Arial,
+                  sans-serif;
+                line-height:
+                  1.6;
+              "
+            >
+
+              <h2>
+                GOGOT PARTY
+              </h2>
+
+              <p>
+                ${message}
+              </p>
+
+            </div>
+
+          `,
+
         });
-
-      // SEND MAIL
-      await transporter.sendMail({
-
-        from:
-          process.env.EMAIL_USER,
-
-        to:
-          process.env.EMAIL_USER,
-
-        bcc: emails,
-
-        subject,
-
-        text: message,
-
-      });
 
       res.status(200).json({
 
@@ -59,6 +75,8 @@ export const sendEmail =
 
         message:
           "Emails sent successfully",
+
+        data,
 
       });
 
@@ -70,9 +88,11 @@ export const sendEmail =
 
         success: false,
 
-        message: error.message,
+        message:
+          error.message,
 
       });
 
     }
+
   };

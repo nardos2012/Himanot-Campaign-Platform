@@ -515,7 +515,10 @@ Donate() {
                       "
                     >
 
-                      1000060960163
+                       <b>1000060960163</b>
+                        <p>Haimanot Gebre</p> 
+                      <b>1000738496608</b>
+                        <p>Ahmedin Alemu</p>
 
                     </p>
 
@@ -550,7 +553,9 @@ Donate() {
                       "
                     >
 
-                      01320457269400
+                      <b>01320457269400</b> <br />
+                  
+                      Haimanot Gebre
 
                     </p>
 
@@ -585,7 +590,8 @@ Donate() {
                       "
                     >
 
-                      61157069
+                      <b>61157069</b> <br />
+                      Haimanot Gebre
 
                     </p>
 
