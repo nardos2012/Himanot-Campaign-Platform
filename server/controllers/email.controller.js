@@ -6,7 +6,7 @@ import Supporter
 
 const resend =
   new Resend(
-    process.env.RESEND_API_KEY
+    "re_ZYvMhmQr_C5egPhVrgqn4W9MsMDP4e1dr"
   );
 
 // SEND EMAIL

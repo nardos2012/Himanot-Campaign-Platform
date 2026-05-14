@@ -1,11 +1,11 @@
 import {
   Link,
 } from "react-router-dom";
+
 import logo4
   from "../assets/logo4.png";
 
-export default function
-Footer() {
+export default function Footer() {
 
   return (
 
@@ -22,32 +22,41 @@ Footer() {
 
       <div
         className="
-          max-w-6xl
+          max-w-7xl
           mx-auto
           px-6
-          py-10
+          py-12
           grid
-          md:grid-cols-3
-          gap-8
+          grid-cols-1
+          sm:grid-cols-2
+          lg:grid-cols-4
+          gap-10
+          items-start
         "
       >
 
         {/* BRAND */}
         <div>
-        <img
-  src={logo4}
-  alt="GOGOT PARTY"
-  className="
-    w-20
-    mb-4
-  "
-/>
+
+          <img
+            src={logo4}
+            alt="GOGOT PARTY"
+            className="
+              w-24
+              mb-4
+              rounded-full
+              shadow-xl
+              bg-white
+              p-1
+            "
+          />
 
           <h3
             className="
               font-bold
-              text-2xl
-              mb-3
+              text-3xl
+              mb-4
+              leading-tight
             "
           >
 
@@ -64,8 +73,61 @@ Footer() {
 
             Building a better
             future through
-            unity and
-            leadership.
+            unity, democracy,
+            and leadership.
+
+          </p>
+
+        </div>
+
+        {/* QR INSTALL */}
+        <div
+          className="
+            flex
+            flex-col
+            items-center
+            text-center
+          "
+        >
+
+          <div
+            className="
+              bg-white
+              p-3
+              rounded-3xl
+              shadow-2xl
+            "
+          >
+
+            <img
+
+              src="/Enor1-Campaign.png"
+
+              alt="Install App QR"
+
+              className="
+                w-40
+                h-40
+                object-cover
+                rounded-2xl
+              "
+            />
+
+          </div>
+
+          <p
+            className="
+              mt-4
+              text-sm
+              font-semibold
+              leading-relaxed
+              text-white/90
+            "
+          >
+
+            Scan to Install
+            the Official
+            GOGOT Campaign App
 
           </p>
 
@@ -77,18 +139,18 @@ Footer() {
           <h4
             className="
               font-semibold
-              text-lg
-              mb-3
+              text-xl
+              mb-4
             "
           >
 
-            Links
+            Quick Links
 
           </h4>
 
           <ul
             className="
-              space-y-2
+              space-y-3
               text-white/80
             "
           >
@@ -128,14 +190,30 @@ Footer() {
             <li>
 
               <Link
-                to="/donate"
+                to="/news"
                 className="
                   hover:text-yellow-300
                   transition
                 "
               >
 
-                Donate
+                News
+
+              </Link>
+
+            </li>
+
+            <li>
+
+              <Link
+                to="/events"
+                className="
+                  hover:text-yellow-300
+                  transition
+                "
+              >
+
+                Events
 
               </Link>
 
@@ -151,7 +229,23 @@ Footer() {
                 "
               >
 
-                Join
+                Join Movement
+
+              </Link>
+
+            </li>
+
+            <li>
+
+              <Link
+                to="/donate"
+                className="
+                  hover:text-yellow-300
+                  transition
+                "
+              >
+
+                Donate
 
               </Link>
 
@@ -167,8 +261,8 @@ Footer() {
           <h4
             className="
               font-semibold
-              text-lg
-              mb-3
+              text-xl
+              mb-4
             "
           >
 
@@ -176,16 +270,41 @@ Footer() {
 
           </h4>
 
-          <p
+          <div
             className="
+              space-y-3
               text-white/80
+              leading-relaxed
             "
           >
 
-            Addis Ababa,
-            Ethiopia
+            <p>
 
-          </p>
+              Addis Ababa,
+              Ethiopia
+
+            </p>
+
+            <p>
+
+              Official Campaign
+              Platform
+
+            </p>
+
+            <p
+              className="
+                text-yellow-300
+                font-semibold
+              "
+            >
+
+              Vote for
+              the New Generation
+
+            </p>
+
+          </div>
 
         </div>
 
@@ -199,18 +318,23 @@ Footer() {
           text-center
           text-white/70
           text-sm
-          py-4
+          py-5
+          px-4
         "
       >
 
         © {
           new Date()
             .getFullYear()
-        } GOGOT PARTY @Haimanot.All Rights Reserved
+        } GOGOT PARTY ·
+        Developed by
+        Haimanot ·
+        All Rights Reserved
 
       </div>
 
     </footer>
 
   );
+
 }
