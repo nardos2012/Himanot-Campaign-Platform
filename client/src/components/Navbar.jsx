@@ -556,6 +556,80 @@ export default function Navbar() {
             }
 
           </button>
+          {
+  user ? (
+
+    <button
+
+      onClick={handleLogout}
+
+      className="
+        bg-red-500
+        text-white
+        px-4
+        py-2
+        rounded-xl
+      "
+    >
+
+      Logout
+
+    </button>
+
+  ) : (
+
+    <div
+      className="
+        flex
+        items-center
+        gap-3
+      "
+    >
+
+      <Link
+
+        to="/register"
+
+        className="
+          border
+          border-white
+          px-4
+          py-2
+          rounded-xl
+          hover:bg-white
+          hover:text-black
+          transition
+        "
+      >
+
+        Register
+
+      </Link>
+
+      <Link
+
+        to="/admin/login"
+
+        className="
+          bg-white
+          text-black
+          px-4
+          py-2
+          rounded-xl
+          font-bold
+          hover:bg-gray-200
+          transition
+        "
+      >
+
+        Login
+
+      </Link>
+
+    </div>
+
+  )
+}
 
         </div>
 
@@ -960,53 +1034,60 @@ export default function Navbar() {
     </button>
 
     {/* LOGIN / LOGOUT */}
-    {
-      user ? (
+    <div
+  className="
+    space-y-4
+  "
+>
 
-        <button
-          onClick={handleLogout}
-          className="
-            w-full
-            bg-primary
-            hover:bg-primaryDark
-            text-white
-            py-3
-            rounded-xl
-            font-bold
-            transition
-          "
-        >
+  <Link
 
-          Logout
+    to="/register"
 
-        </button>
-
-      ) : (
-
-        <Link
-          to="/admin/login"
-          onClick={() =>
-            setMobileMenu(false)
-          }
-          className="
-            block
-            text-center
-            bg-primary
-            hover:bg-primaryDark
-            text-white
-            py-3
-            rounded-xl
-            font-bold
-            transition
-          "
-        >
-
-          Login
-
-        </Link>
-
-      )
+    onClick={() =>
+      setMobileMenu(false)
     }
+
+    className="
+      block
+      text-center
+      border
+      py-3
+      rounded-xl
+      font-bold
+      transition
+    "
+  >
+
+    Register
+
+  </Link>
+
+  <Link
+
+    to="/admin/login"
+
+    onClick={() =>
+      setMobileMenu(false)
+    }
+
+    className="
+      block
+      text-center
+      bg-primary
+      text-white
+      py-3
+      rounded-xl
+      font-bold
+      transition
+    "
+  >
+
+    Login
+
+  </Link>
+
+</div>
 
   </div>
 

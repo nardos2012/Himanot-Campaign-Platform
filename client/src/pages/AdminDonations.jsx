@@ -375,12 +375,14 @@ import Footer from "../components/Footer";
               shadow-lg
               rounded-xl
               overflow-hidden
+              overflow-x-auto
+              w-full
             "
           >
   
             <table
               className="
-                w-full
+                w-full min-w-full
               "
             >
   

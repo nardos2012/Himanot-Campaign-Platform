@@ -7,6 +7,8 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import FloatingSymbol
+  from "./components/FloatingSymbol";
 
 import ProtectedRoute from "./components/ProtectedRoute";
 
@@ -251,6 +253,7 @@ function App() {
       />
   
       </Routes>
+      <FloatingSymbol />
   
     </Suspense>
   
