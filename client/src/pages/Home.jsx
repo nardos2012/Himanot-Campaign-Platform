@@ -50,50 +50,26 @@ export default function Home() {
     supporters,
     setSupporters
   ] = useState([]);
+  const [
+    deferredPrompt,
+    setDeferredPrompt
+  ] = useState(null);
   
-  <button
+  useEffect(() => {
 
-  onClick={async () => {
-
-    if (!deferredPrompt) {
-
-      alert(
-        "To install:\n\nChrome Menu → Add to Home Screen"
-      );
-
-      return;
-
-    }
-
-    deferredPrompt.prompt();
-
-    const {
-      outcome
-    } =
-      await deferredPrompt.userChoice;
-
-    console.log(outcome);
-
-    setDeferredPrompt(null);
-
-  }}
-
-  className="
-    bg-yellow-400
-    text-black
-    px-8
-    py-4
-    rounded-2xl
-    font-bold
-    shadow-xl
-    hover:scale-105
-    transition
-  "
->
-
-  📲 Install App
-
-</button>
+    // INSTALL PROMPT
+    const handler = (e) => {
+  
+      e.preventDefault();
+  
+      setDeferredPrompt(e);
+  
+    };
+  
+    window.addEventListener(
+      "beforeinstallprompt",
+      handler
+    );
   
     // COUNTDOWN TIMER
     const timer =
