@@ -449,7 +449,7 @@ Donate() {
                     "
                   >
 
-                    0912097074
+                    {/* 0912097074 */}
 
                   </p>
 
@@ -515,10 +515,10 @@ Donate() {
                       "
                     >
 
-                       <b>1000060960163</b>
-                        <p>Haimanot Gebre</p> 
-                      <b>1000738496608</b>
-                        <p>Ahmedin Alemu</p>
+                       <b>1000763660684</b>
+                        <p>GOGOT PARTY ENEMORNA ANER-1 MIRCHA</p> 
+                      {/* <b>1000738496608</b>
+                        <p>Ahmedin Alemu</p> */}
 
                     </p>
 
@@ -553,9 +553,9 @@ Donate() {
                       "
                     >
 
-                      <b>01320457269400</b> <br />
+                      {/* <b>01320457269400</b> <br />
                   
-                      Haimanot Gebre
+                      Haimanot Gebre */}
 
                     </p>
 
@@ -590,8 +590,8 @@ Donate() {
                       "
                     >
 
-                      <b>61157069</b> <br />
-                      Haimanot Gebre
+                      {/* <b>61157069</b> <br />
+                      Haimanot Gebre */}
 
                     </p>
 
