@@ -7,12 +7,13 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import FloatingSymbol
-  from "./components/FloatingSymbol";
 
 import {
   Toaster,
 } from "react-hot-toast";
+
+import FloatingSymbol
+  from "./components/FloatingSymbol";
 
 import ProtectedRoute
   from "./components/ProtectedRoute";
@@ -124,6 +125,9 @@ function App() {
       <Toaster
         position="top-right"
       />
+
+      {/* FLOATING SYMBOL */}
+      <FloatingSymbol />
 
       <Suspense
 
@@ -264,15 +268,17 @@ function App() {
 
           {/* 404 */}
 
-      <Route
-        path="*"
-        element={<NotFound />}
-      />
-  
-      </Routes>
-  
-    </Suspense>
-  
+          <Route
+            path="*"
+            element={<NotFound />}
+          />
+
+        </Routes>
+
+      </Suspense>
+
+    </>
+
   );
 
 }
