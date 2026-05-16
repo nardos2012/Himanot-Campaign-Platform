@@ -160,7 +160,14 @@ import {
             <img
               src={event.image}
               alt={event.title}
-              className="w-full h-[500px] object-cover"
+              className="
+    w-full
+    max-w-full
+    h-auto
+    rounded-2xl
+    object-cover
+    shadow-lg
+  "
             />
   
           )

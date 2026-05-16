@@ -20,6 +20,8 @@ import {
 } from "react-helmet-async";
 
 import { API_URL } from "../config";
+import toast
+  from "react-hot-toast";
 
 export default function Home() {
 
@@ -189,10 +191,42 @@ export default function Home() {
           "token"
         );
 
+      // const supporterRes =
+      //   await axios.get(
+
+      //     `${API_URL}/api/supporters`,
+
+      //     {
+      //       headers: token
+      //         ? {
+      //             Authorization:
+      //               `Bearer ${token}`,
+      //           }
+      //         : {},
+      //     }
+
+      //   );
+
+      // setSupporters(
+
+      //   supporterRes.data
+      //     .supporters || []
+
+      // );
+
+      // setSupporters(
+      //   supporterRes.data
+      //     .supporters || []
+      // );
+
     } catch (error) {
 
       console.error(error);
-
+    
+      toast.error(
+        "Offline mode: Unable to load latest updates."
+      );
+    
     }
   };
 

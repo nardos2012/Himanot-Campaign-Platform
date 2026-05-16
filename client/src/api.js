@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "http://${API_URL}/api",
+  baseURL: "https://himanot-campaign-platform.onrender.com/api",
 });
 
 API.interceptors.request.use((req) => {

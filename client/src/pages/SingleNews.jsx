@@ -81,11 +81,33 @@ export default function SingleNews() {
       {
         post.image && (
 
+          <div
+          className="
+            w-full
+            max-w-5xl
+            mx-auto
+            overflow-hidden
+            rounded-3xl
+            shadow-2xl
+          "
+        >
+        
           <img
+        
             src={post.image}
+        
             alt={post.title}
-            className="w-full h-[500px] object-cover"
+        
+            className="
+              w-full
+              h-auto
+              max-h-[700px]
+              object-cover
+            "
+        
           />
+        
+        </div>
 
         )
       }
@@ -107,11 +129,49 @@ export default function SingleNews() {
 
         </p>
 
-        <div className="text-lg leading-relaxed text-gray-700 whitespace-pre-line">
+        <div
+  className="
+    max-w-4xl
+    mx-auto
+    mt-10
+    px-4
+    sm:px-6
+    lg:px-8
+  "
+>
 
-          {post.content}
+  <div
+    className="
+      bg-white
+      dark:bg-gray-900
 
-        </div>
+      rounded-3xl
+      shadow-xl
+
+      p-6
+      md:p-10
+
+      text-gray-800
+      dark:text-gray-200
+
+      text-lg
+      leading-[2.2]
+
+      tracking-wide
+
+      whitespace-pre-line
+
+      text-justify
+
+      break-words
+    "
+  >
+
+    {post.content}
+
+  </div>
+
+</div>
 
       </section>
 

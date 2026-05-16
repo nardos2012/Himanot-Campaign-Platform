@@ -15,7 +15,8 @@ import {
 import {
   Helmet,
 } from "react-helmet-async";
-
+import toast
+  from "react-hot-toast";
 
 export default function News() {
 
@@ -46,8 +47,12 @@ export default function News() {
 
     } catch (error) {
 
-      console.log(error);
-
+      console.error(error);
+    
+      toast.error(
+        "Offline mode: Unable to load latest updates."
+      );
+    
     } finally {
 
       setLoading(false);

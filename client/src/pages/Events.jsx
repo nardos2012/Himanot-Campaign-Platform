@@ -15,6 +15,9 @@ import {
   Helmet,
 } from "react-helmet-async";
 
+import toast
+  from "react-hot-toast";
+
 export default function Events() {
 
   const [events, setEvents] =
@@ -35,7 +38,11 @@ export default function Events() {
     } catch (error) {
 
       console.error(error);
-
+    
+      toast.error(
+        "Offline mode: Unable to load latest updates."
+      );
+    
     }
   };
 
