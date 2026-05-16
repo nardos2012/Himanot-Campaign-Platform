@@ -20,6 +20,8 @@ import {
 } from "react-helmet-async";
 
 import { API_URL } from "../config";
+import toast
+  from "react-hot-toast";
 
 export default function Home() {
 
@@ -190,10 +192,15 @@ export default function Home() {
       //     .supporters || []
       // );
 
-    } catch (error) {
+    } 
+    catch (error) {
 
       console.error(error);
-
+    
+      toast.error(
+        "Offline mode: Unable to load latest updates."
+      );
+    
     }
   };
 
