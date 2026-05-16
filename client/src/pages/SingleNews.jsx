@@ -81,11 +81,33 @@ export default function SingleNews() {
       {
         post.image && (
 
+          <div
+          className="
+            w-full
+            max-w-5xl
+            mx-auto
+            overflow-hidden
+            rounded-3xl
+            shadow-2xl
+          "
+        >
+        
           <img
+        
             src={post.image}
+        
             alt={post.title}
-            className="w-full h-[500px] object-cover"
+        
+            className="
+              w-full
+              h-auto
+              max-h-[700px]
+              object-cover
+            "
+        
           />
+        
+        </div>
 
         )
       }

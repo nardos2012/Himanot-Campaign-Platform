@@ -11,6 +11,10 @@ import {
 import {
   Helmet,
 } from "react-helmet-async";
+import toast
+  from "react-hot-toast";
+  import API
+  from "../api";
 
 export default function
 AdminPosts() {
@@ -178,13 +182,11 @@ AdminPosts() {
 
         console.error(error);
 
-        alert(
-
-          error.response?.data
-            ?.message ||
-
-          "Upload failed"
-
+        toast.error(
+          "Failed to create post",
+          {
+            id: toastId,
+          }
         );
 
       } finally {
@@ -196,54 +198,56 @@ AdminPosts() {
     };
 
   // DELETE POST
-  const deletePost =
-    async (id) => {
+  const handleDelete =
+  async (id) => {
 
-      const confirmDelete =
-        window.confirm(
-          "Delete this post?"
-        );
+    const toastId =
+      toast.loading(
+        "Deleting post..."
+      );
 
-      if (!confirmDelete)
-        return;
+    try {
 
-      try {
+      await API.delete(
+        `/posts/${id}`
+      );
 
-        const token =
-          localStorage.getItem(
-            "token"
-          );
+      setPosts(
 
-        await axios.delete(
+        posts.filter(
+          (post) =>
+            post._id !== id
+        )
 
-          `${API_URL}/api/posts/${id}`,
+      );
 
-          {
-            headers: token
-              ? {
-                  Authorization:
-                    `Bearer ${token}`,
-                }
-              : {},
-          }
+      toast.success(
 
-        );
+        "Post deleted successfully",
 
-        alert(
-          "Post deleted"
-        );
-        toast.success(
-          "Post created successfully"
-        );
-        fetchPosts();
+        {
+          id: toastId,
+        }
 
-      } catch (error) {
+      );
 
-        console.error(error);
+    } catch (error) {
 
-      }
+      console.error(error);
 
-    };
+      toast.error(
+
+        "Failed to delete post",
+
+        {
+          id: toastId,
+        }
+
+      );
+
+    }
+
+  };
 
   return (
     <div className="page-container">
@@ -627,11 +631,9 @@ AdminPosts() {
                     </p>
 
                     <button
-                      onClick={() =>
-                        deletePost(
-                          post._id
-                        )
-                      }
+         onClick={() =>
+          handleDelete(post._id)
+        }
                       className="
                         w-full
                         bg-red-500
