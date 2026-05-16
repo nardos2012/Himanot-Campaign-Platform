@@ -160,7 +160,7 @@ AdminPosts() {
 
         );
 
-        alert(
+        toast.success(
           "Post created successfully"
         );
 
@@ -232,7 +232,9 @@ AdminPosts() {
         alert(
           "Post deleted"
         );
-
+        toast.success(
+          "Post created successfully"
+        );
         fetchPosts();
 
       } catch (error) {

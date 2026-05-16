@@ -8,10 +8,16 @@ import {
   Route,
 } from "react-router-dom";
 
-import ProtectedRoute from "./components/ProtectedRoute";
+import {
+  Toaster,
+} from "react-hot-toast";
 
-  //Lazy Imports
-  const Home =
+import ProtectedRoute
+  from "./components/ProtectedRoute";
+
+// LAZY IMPORTS
+
+const Home =
   lazy(() =>
     import("./pages/Home")
   );
@@ -110,152 +116,165 @@ function App() {
 
   return (
 
-    <Suspense
-  
-      fallback={
-  
-        <div
-          className="
-            min-h-screen
-            flex
-            items-center
-            justify-center
-            text-2xl
-            font-bold
-          "
-        >
-  
-          Loading...
-  
-        </div>
-  
-      }
-  
-    >
-  
-      <Routes>
-  
-        {/* ALL YOUR ROUTES HERE */}
-        
-      {/* PUBLIC ROUTES */}
+    <>
 
-      <Route
-        path="/"
-        element={<Home />}
+      {/* TOAST NOTIFICATIONS */}
+      <Toaster
+        position="top-right"
       />
 
-      <Route
-        path="/about"
-        element={<About />}
-      />
+      <Suspense
 
-      <Route
-        path="/news"
-        element={<News />}
-      />
+        fallback={
 
-      <Route
-        path="/news/:id"
-        element={<SingleNews />}
-      />
+          <div
+            className="
+              min-h-screen
+              flex
+              items-center
+              justify-center
+              text-2xl
+              font-bold
+            "
+          >
 
-      <Route
-        path="/events"
-        element={<Events />}
-      />
+            Loading...
 
-      <Route
-        path="/events/:id"
-        element={<SingleEvent />}
-      />
+          </div>
 
-      <Route
-        path="/donate"
-        element={<Donate />}
-      />
-
-      <Route
-        path="/join"
-        element={<Join />}
-      />
-
-      <Route
-        path="/register"
-        element={<Register />}
-      />
-
-      <Route
-        path="/supporters"
-        element={<Supporters />}
-      />
-
-      <Route
-        path="/analytics"
-        element={<Analytics />}
-      />
-
-      {/* AUTH */}
-
-      <Route
-        path="/admin/login"
-        element={<AdminLogin />}
-      />
-
-      {/* ADMIN ROUTES */}
-
-      <Route
-        element={
-          <ProtectedRoute>
-            <AdminLayout />
-          </ProtectedRoute>
         }
+
       >
 
-        <Route
-          path="/admin/posts"
-          element={<AdminPosts />}
-        />
+        <Routes>
 
-        <Route
-          path="/admin/events"
-          element={<AdminEvents />}
-        />
+          {/* PUBLIC ROUTES */}
 
-        <Route
-          path="/admin/donations"
-          element={<AdminDonations />}
-        />
+          <Route
+            path="/"
+            element={<Home />}
+          />
 
-        <Route
-          path="/admin/supporters"
-          element={<AdminSupporters />}
-        />
+          <Route
+            path="/about"
+            element={<About />}
+          />
 
-        <Route
-          path="/admin/email"
-          element={<AdminEmail />}
-        />
+          <Route
+            path="/news"
+            element={<News />}
+          />
 
-        <Route
-          path="/admin/analytics"
-          element={<Analytics />}
-        />
+          <Route
+            path="/news/:id"
+            element={<SingleNews />}
+          />
 
-      </Route>
+          <Route
+            path="/events"
+            element={<Events />}
+          />
 
-      {/* 404 */}
+          <Route
+            path="/events/:id"
+            element={<SingleEvent />}
+          />
 
-      <Route
-        path="*"
-        element={<NotFound />}
-      />
-  
-      </Routes>
-  
-    </Suspense>
-  
+          <Route
+            path="/donate"
+            element={<Donate />}
+          />
+
+          <Route
+            path="/join"
+            element={<Join />}
+          />
+
+          <Route
+            path="/register"
+            element={<Register />}
+          />
+
+          <Route
+            path="/supporters"
+            element={<Supporters />}
+          />
+
+          <Route
+            path="/analytics"
+            element={<Analytics />}
+          />
+
+          {/* AUTH */}
+
+          <Route
+            path="/admin/login"
+            element={<AdminLogin />}
+          />
+
+          {/* ADMIN ROUTES */}
+
+          <Route
+
+            element={
+
+              <ProtectedRoute>
+
+                <AdminLayout />
+
+              </ProtectedRoute>
+
+            }
+
+          >
+
+            <Route
+              path="/admin/posts"
+              element={<AdminPosts />}
+            />
+
+            <Route
+              path="/admin/events"
+              element={<AdminEvents />}
+            />
+
+            <Route
+              path="/admin/donations"
+              element={<AdminDonations />}
+            />
+
+            <Route
+              path="/admin/supporters"
+              element={<AdminSupporters />}
+            />
+
+            <Route
+              path="/admin/email"
+              element={<AdminEmail />}
+            />
+
+            <Route
+              path="/admin/analytics"
+              element={<Analytics />}
+            />
+
+          </Route>
+
+          {/* 404 */}
+
+          <Route
+            path="*"
+            element={<NotFound />}
+          />
+
+        </Routes>
+
+      </Suspense>
+
+    </>
+
   );
-  
-  }
-  
-  export default App;
+
+}
+
+export default App;
